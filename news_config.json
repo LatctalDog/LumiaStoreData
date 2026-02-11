@@ -1,3 +1,10 @@
 {
-  "rss_url": "https://www.vidaextra.com/feedburner.xml"
+  "rss_urls": [
+    "https://www.3djuegos.com/feedburner.xml",
+    "https://www.vidaextra.com/feedburner.xml",
+    "https://www.hobbyconsolas.com/rss/",
+    "https://www.somosxbox.com/feed/",
+    "https://generacionxbox.com/feed/",
+    "https://vandal.elespanol.com/xml.cgi"
+  ]
 }
