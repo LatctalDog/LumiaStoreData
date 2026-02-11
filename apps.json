@@ -1,0 +1,114 @@
+[
+  {
+    "Nombre": "MixRadio",
+    "Precio": "Gratis",
+    "Valoracion": "4.4",
+    "ImagenPromo": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/mixradio/promo.jpg",
+    "Icono": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/mixradio/icon.png"
+  },
+  {
+    "Nombre": "Office 365 Personal",
+    "Precio": "$6.99/mes",
+    "Valoracion": "4.6",
+    "ImagenPromo": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/office/promo.jpg",
+    "Icono": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/office/icon.png"
+  },
+  {
+    "Nombre": "Minecraft for Windows 10",
+    "Precio": "$6.99",
+    "Valoracion": "4.8",
+    "ImagenPromo": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/minecraft/promo.jpg",
+    "Icono": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/minecraft/icon.png"
+  },
+  {
+    "Nombre": "Hitman GO",
+    "Precio": "$4.99",
+    "Valoracion": "4.5",
+    "ImagenPromo": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/hitman/promo.jpg",
+    "Icono": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/hitman/icon.png"
+  },
+  {
+    "Nombre": "Instagram",
+    "Precio": "Gratis",
+    "Valoracion": "4.3",
+    "ImagenPromo": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/instagram/promo.jpg",
+    "Icono": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/instagram/icon.png"
+  },
+  {
+    "Nombre": "Podcast",
+    "Precio": "Gratis",
+    "Valoracion": "4.1",
+    "ImagenPromo": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/podcast/promo.jpg",
+    "Icono": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/podcast/icon.png"
+  },
+  {
+    "Nombre": "Asphalt 8: Airborne",
+    "Precio": "Gratis",
+    "Valoracion": "4.7",
+    "ImagenPromo": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/asphalt/promo.jpg",
+    "Icono": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/asphalt/icon.png"
+  },
+  {
+    "Nombre": "Subway Surfers",
+    "Precio": "Gratis",
+    "Valoracion": "4.6",
+    "ImagenPromo": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/subway/promo.jpg",
+    "Icono": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/subway/icon.png"
+  },
+  {
+    "Nombre": "Adobe PS",
+    "Precio": "$9.99",
+    "Valoracion": "4.2",
+    "ImagenPromo": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/adobe/promo.jpg",
+    "Icono": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/adobe/icon.png"
+  },
+  {
+    "Nombre": "Fruit Ninja",
+    "Precio": "$0.99",
+    "Valoracion": "4.5",
+    "ImagenPromo": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/fruit/promo.jpg",
+    "Icono": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/fruit/icon.png"
+  },
+  {
+    "Nombre": "VLC",
+    "Precio": "Gratis",
+    "Valoracion": "4.4",
+    "ImagenPromo": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/vlc/promo.jpg",
+    "Icono": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/vlc/icon.png"
+  },
+  {
+    "Nombre": "Groove Music Pass",
+    "Precio": "$9.99/mes",
+    "Valoracion": "4.3",
+    "ImagenPromo": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/groove/promo.jpg",
+    "Icono": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/groove/icon.png"
+  },
+  {
+    "Nombre": "OneNote",
+    "Precio": "Gratis",
+    "Valoracion": "4.5",
+    "ImagenPromo": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/onenote/promo.jpg",
+    "Icono": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/onenote/icon.png"
+  },
+  {
+    "Nombre": "Geometry Dash",
+    "Precio": "Gratis",
+    "Valoracion": "4.8",
+    "ImagenPromo": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/geometry/promo.jpg",
+    "Icono": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/geometry/icon.png"
+  },
+  {
+    "Nombre": "Spotify",
+    "Precio": "Gratis",
+    "Valoracion": "4.5",
+    "ImagenPromo": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/spotify/promo.jpg",
+    "Icono": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/spotify/icon.png"
+  },
+  {
+    "Nombre": "Candy Crush Soda Saga",
+    "Precio": "Gratis",
+    "Valoracion": "4.6",
+    "ImagenPromo": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/candy/promo.jpg",
+    "Icono": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/candy/icon.png"
+  }
+]
