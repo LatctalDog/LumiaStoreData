@@ -13,66 +13,77 @@ FEEDS = {
     "Vandal": "https://vandal.elespanol.com/xml.cgi"
 }
 
-def clean_content(text):
-    """Limpia basura publicitaria y errores de codificación"""
+def clean_text_expert(text):
+    """Limpieza profunda de texto y caracteres para el Lumia"""
     if not text: return ""
     
-    # 1. Reparación de caracteres rotos (Específico para Vandal/Generación Xbox)
-    repairs = {
-        'þ': 'ñ', 'Õ': 'é', 'µ': 'ó', 'Ú': 'í', 'Ã': 'á', 'º': 'ú',
-        'þ': 'ñ', 'ń': 'ñ', 'è': 'é', 'ê': 'á', 'à': 'á', '¡': 'í'
-    }
-    for broken, fixed in repairs.items():
-        text = text.replace(broken, fixed)
+    # 1. Eliminar frases basura recurrentes
+    basura = [
+        r"íComparte!", r"íSíguenos en Google News!", r"PUBLICIDAD",
+        r"Más historias en la categoría.*", r"Imagen", r"En 3DJuegos \|.*",
+        r"En VidaExtra \|.*", r"Descargar", r"Suscribete al canal de.*"
+    ]
+    for patron in basura:
+        text = re.sub(patron, "", text, flags=re.IGNORECASE)
 
-    # 2. Quitar restos de la web
-    text = re.sub(r'PUBLICIDAD', '', text)
-    text = re.sub(r'En 3DJuegos \|.*', '', text)
-    text = re.sub(r'En VidaExtra \|.*', '', text)
+    # 2. Corregir saltos de línea triples y espacios
+    text = re.sub(r'\n{3,}', '\n\n', text)
     
-    # 3. Límite de seguridad para RAM del Lumia (5000 es seguro)
-    return text[:5000].strip()
+    # 3. Límite de seguridad (8000 caracteres es el punto dulce para un Lumia 830)
+    # Es suficiente para noticias completas sin colapsar la RAM del móvil.
+    return text[:8000].strip()
 
 def procesar_noticias():
     noticias_finales = []
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0'}
 
-    print("--- Extracción Definitiva para Windows 10 Mobile ---")
+    print("--- Iniciando Extracción de Alta Calidad ---")
 
     for nombre_fuente, url_feed in FEEDS.items():
         print(f"Sincronizando: {nombre_fuente}")
         feed = feedparser.parse(url_feed)
         
-        for entrada in feed.entries[:10]: # Subimos a 10 por medio
+        for entrada in feed.entries[:10]:
             try:
-                # Descarga con detección forzada de UTF-8
+                # Descarga inteligente
                 r = requests.get(entrada.link, headers=headers, timeout=10)
-                r.encoding = 'utf-8' 
                 
+                # Si es Vandal o GenXbox, forzamos detección de encoding
+                if "vandal" in entrada.link or "generacionxbox" in entrada.link:
+                    r.encoding = r.apparent_encoding
+                else:
+                    r.encoding = 'utf-8'
+
                 article = Article(entrada.link, language='es')
                 article.set_html(r.text)
                 article.parse()
                 
                 if len(article.text) > 100:
+                    # Aplicamos limpieza experta
+                    titulo = clean_text_expert(article.title)
+                    resumen = clean_text_expert(article.text)
+
                     noticia = {
-                        "titulo": clean_content(article.title),
-                        "fecha": entrada.get("published", "Hoy"),
+                        "titulo": titulo,
+                        "fecha": entrada.get("published", "Reciente"),
                         "imagen": article.top_image,
-                        "resumen": clean_content(article.text),
+                        "resumen": resumen,
                         "fuente": nombre_fuente,
                         "link": entrada.link
                     }
                     noticias_finales.append(noticia)
-                    print(f"  + {noticia['titulo'][:40]}...")
+                    print(f"  OK: {titulo[:45]}...")
                 
                 time.sleep(0.3)
-            except:
+            except Exception as e:
+                print(f"  Error en {nombre_fuente}: {e}")
                 continue
 
+    # Guardar JSON final
     with open('noticias.json', 'w', encoding='utf-8') as f:
         json.dump(noticias_finales, f, ensure_ascii=False, indent=4)
     
-    print(f"\nFinalizado: {len(noticias_finales)} noticias listas para el Lumia.")
+    print(f"\n¡Listo! {len(noticias_finales)} noticias procesadas sin errores.")
 
 if __name__ == "__main__":
     procesar_noticias()
