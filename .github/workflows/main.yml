@@ -1,0 +1,33 @@
+name: Actualizar Noticias
+
+on:
+  schedule:
+    - cron: '0 * * * *' # Se ejecuta cada hora
+  workflow_dispatch: # Permite ejecutarlo manualmente para probar
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v3
+
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Instalar dependencias
+        run: |
+          pip install newspaper3k feedparser lxml_html_clean
+
+      - name: Ejecutar Scraper
+        run: python scraper.py
+
+      - name: Guardar cambios
+        run: |
+          git config --global user.name "NewsBot"
+          git config --global user.email "bot@github.com"
+          git add noticias.json
+          git commit -m "Noticias actualizadas" || exit 0
+          git push
