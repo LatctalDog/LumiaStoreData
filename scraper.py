@@ -3,7 +3,7 @@ import feedparser
 from newspaper import Article
 import time
 
-# Configuración de fuentes
+# Tus fuentes de noticias de videojuegos
 FEEDS = {
     "3DJuegos": "https://www.3djuegos.com/feedburner.xml",
     "VidaExtra": "https://www.vidaextra.com/feedburner.xml",
@@ -13,29 +13,27 @@ FEEDS = {
 }
 
 def clean_text(text):
-    """Limpia el texto para que el Lumia no sufra con caracteres extraños"""
+    """Limpia y acorta el texto para el Lumia 830"""
     if not text:
         return ""
-    # Limitamos a 1200 caracteres para no saturar la RAM del 830
-    return text[:1200].replace('\n', ' ').strip() + "..."
+    # 1200 caracteres es ideal para leer sin saturar la RAM del móvil
+    return text[:1200].strip() + "..."
 
 def procesar_noticias():
     noticias_finales = []
-    print("Iniciando extracción de noticias...")
+    print("--- Iniciando extracción para Lumia ---")
 
     for nombre_fuente, url_feed in FEEDS.items():
-        print(f"Procesando: {nombre_fuente}")
+        print(f"Leyendo: {nombre_fuente}")
         feed = feedparser.parse(url_feed)
         
-        # Tomamos las 8 noticias más recientes de cada medio
+        # Tomamos las 8 más recientes de cada uno
         for entrada in feed.entries[:8]:
             try:
-                # Configuramos la extracción del artículo
                 article = Article(entrada.link, language='es')
                 article.download()
                 article.parse()
                 
-                # Solo agregamos si hay contenido real
                 if len(article.text) > 100:
                     noticia = {
                         "titulo": article.title.strip(),
@@ -46,20 +44,19 @@ def procesar_noticias():
                         "link": entrada.link
                     }
                     noticias_finales.append(noticia)
-                    print(f"  - OK: {article.title[:40]}...")
+                    print(f"  OK: {article.title[:50]}...")
                 
-                # Pequeña pausa para no saturar los servidores de los medios
-                time.sleep(1)
+                time.sleep(0.5) # Pausa técnica
                 
             except Exception as e:
-                print(f"  - Error en {entrada.link}: {e}")
+                print(f"  Error en {entrada.link}: {e}")
                 continue
 
-    # Guardar el resultado final
+    # Guardar el archivo JSON final
     with open('noticias.json', 'w', encoding='utf-8') as f:
         json.dump(noticias_finales, f, ensure_ascii=False, indent=4)
     
-    print(f"\nProceso terminado. Se guardaron {len(noticias_finales)} noticias.")
+    print(f"\n¡Éxito! {len(noticias_finales)} noticias listas para el Lumia.")
 
 if __name__ == "__main__":
     procesar_noticias()
