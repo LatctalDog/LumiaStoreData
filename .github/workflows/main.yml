@@ -2,10 +2,12 @@ name: Actualizar Noticias
 
 on:
   schedule:
-    - cron: '0 * * * *' # Se ejecuta cada hora
-  workflow_dispatch: # Botón para ejecución manual
+    - cron: '0 * * * *' # Automático cada hora
+  workflow_dispatch:    # Botón manual en la web
+  # ESTO PERMITE QUE EL LUMIA DISPARE EL SCRIPT
+  repository_dispatch:
+    types: [activacion_desde_lumia]
 
-# ESTA ES LA PARTE CLAVE PARA EVITAR EL ERROR 403
 permissions:
   contents: write
 
@@ -23,15 +25,15 @@ jobs:
 
       - name: Instalar dependencias
         run: |
-          pip install newspaper3k feedparser lxml_html_clean
+          pip install newspaper3k feedparser lxml_html_clean requests
 
       - name: Ejecutar Scraper
         run: python scraper.py
 
-      - name: Guardar cambios en el repositorio
+      - name: Guardar cambios
         run: |
           git config --global user.name "NewsBot"
           git config --global user.email "bot@github.com"
           git add noticias.json
-          git commit -m "Noticias actualizadas" || exit 0
+          git commit -m "Noticias actualizadas via Lumia" || exit 0
           git push
