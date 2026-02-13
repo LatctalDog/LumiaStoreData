@@ -13,42 +13,46 @@ FEEDS = {
     "Vandal": "https://vandal.elespanol.com/xml.cgi"
 }
 
-def clean_text_expert(text):
-    """Limpieza profunda de texto y caracteres para el Lumia"""
+def clean_extreme(text):
+    """Limpieza total de caracteres y basura web para el Lumia 830"""
     if not text: return ""
     
-    # 1. Eliminar frases basura recurrentes
+    # 1. Diccionario Maestro de Reparación (Vandal / GenXbox Edition)
+    repairs = {
+        '±Ē': 'ñ', 'ańo': 'año', 'reseńa': 'reseña', 'ańadir': 'añadir',
+        'mßs': 'más', 'tĒtulo': 'título', 'tķrmino': 'término', 'compa±': 'compañ',
+        '·ltimo': 'último', 'quķ': 'qué', 'asĒ': 'así', 'estķ': 'está',
+        'podrĒa': 'podría', 'tambiķn': 'también', 'se±al': 'señal', 'Í': 'í',
+        'þ': 'ñ', 'Õ': 'é', 'µ': 'ó', 'Ú': 'í', 'Ã': 'á', 'º': 'ú'
+    }
+    for broken, fixed in repairs.items():
+        text = text.replace(broken, fixed)
+
+    # 2. Eliminar restos de botones e interfaz
     basura = [
-        r"íComparte!", r"íSíguenos en Google News!", r"PUBLICIDAD",
-        r"Más historias en la categoría.*", r"Imagen", r"En 3DJuegos \|.*",
-        r"En VidaExtra \|.*", r"Descargar", r"Suscribete al canal de.*"
+        r"PUBLICIDAD", r"Imagen", r"¡Comparte!", r"íComparte!", 
+        r"íSíguenos en Google News!", r"En 3DJuegos \|.*", 
+        r"En VidaExtra \|.*", r"Suscribete al canal.*"
     ]
     for patron in basura:
         text = re.sub(patron, "", text, flags=re.IGNORECASE)
 
-    # 2. Corregir saltos de línea triples y espacios
+    # 3. Normalizar espacios y saltos de línea
     text = re.sub(r'\n{3,}', '\n\n', text)
-    
-    # 3. Límite de seguridad (8000 caracteres es el punto dulce para un Lumia 830)
-    # Es suficiente para noticias completas sin colapsar la RAM del móvil.
     return text[:8000].strip()
 
 def procesar_noticias():
     noticias_finales = []
-    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0'}
-
-    print("--- Iniciando Extracción de Alta Calidad ---")
+    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/122.0.0.0'}
 
     for nombre_fuente, url_feed in FEEDS.items():
-        print(f"Sincronizando: {nombre_fuente}")
+        print(f"Procesando: {nombre_fuente}")
         feed = feedparser.parse(url_feed)
         
         for entrada in feed.entries[:10]:
             try:
-                # Descarga inteligente
                 r = requests.get(entrada.link, headers=headers, timeout=10)
-                
-                # Si es Vandal o GenXbox, forzamos detección de encoding
+                # Forzamos detección solo si el sitio es problemático
                 if "vandal" in entrada.link or "generacionxbox" in entrada.link:
                     r.encoding = r.apparent_encoding
                 else:
@@ -59,31 +63,23 @@ def procesar_noticias():
                 article.parse()
                 
                 if len(article.text) > 100:
-                    # Aplicamos limpieza experta
-                    titulo = clean_text_expert(article.title)
-                    resumen = clean_text_expert(article.text)
-
                     noticia = {
-                        "titulo": titulo,
-                        "fecha": entrada.get("published", "Reciente"),
+                        "titulo": clean_extreme(article.title),
+                        "fecha": entrada.get("published", "Hoy"),
                         "imagen": article.top_image,
-                        "resumen": resumen,
+                        "resumen": clean_extreme(article.text),
                         "fuente": nombre_fuente,
                         "link": entrada.link
                     }
                     noticias_finales.append(noticia)
-                    print(f"  OK: {titulo[:45]}...")
                 
-                time.sleep(0.3)
-            except Exception as e:
-                print(f"  Error en {nombre_fuente}: {e}")
+                time.sleep(0.2)
+            except:
                 continue
 
-    # Guardar JSON final
     with open('noticias.json', 'w', encoding='utf-8') as f:
         json.dump(noticias_finales, f, ensure_ascii=False, indent=4)
-    
-    print(f"\n¡Listo! {len(noticias_finales)} noticias procesadas sin errores.")
+    print(f"Hecho: {len(noticias_finales)} noticias listas.")
 
 if __name__ == "__main__":
     procesar_noticias()
