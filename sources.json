@@ -1,0 +1,7 @@
+{
+  "fuentes": [
+    { "nombre": "3DJuegos", "url": "https://www.3djuegos.com/feedburner.xml" },
+    { "nombre": "VidaExtra", "url": "https://www.vidaextra.com/feedburner.xml" },
+    { "nombre": "Vandal", "url": "https://vandal.elespanol.com/xml.cgi" }
+  ]
+}
