@@ -3,7 +3,11 @@ name: Actualizar Noticias
 on:
   schedule:
     - cron: '0 * * * *' # Se ejecuta cada hora
-  workflow_dispatch: # Permite ejecutarlo manualmente para probar
+  workflow_dispatch: # Botón para ejecución manual
+
+# ESTA ES LA PARTE CLAVE PARA EVITAR EL ERROR 403
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -24,7 +28,7 @@ jobs:
       - name: Ejecutar Scraper
         run: python scraper.py
 
-      - name: Guardar cambios
+      - name: Guardar cambios en el repositorio
         run: |
           git config --global user.name "NewsBot"
           git config --global user.email "bot@github.com"
