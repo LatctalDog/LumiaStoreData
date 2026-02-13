@@ -4,8 +4,11 @@ import feedparser # Para leer tus links actuales
 
 # Lista de tus fuentes RSS actuales
 FEEDS = [
-    "https://www.clarin.com/rss/lo-ultimo/",
-    "https://elpais.com/rss/elpais/portada.xml"
+    "https://www.3djuegos.com/feedburner.xml",
+    "https://www.vidaextra.com/feedburner.xml",
+    "https://www.eurogamer.es/feed",
+    "https://generacionxbox.com/feed/",
+    "https://vandal.elespanol.com/xml.cgi"
 ]
 
 def procesar_noticias():
