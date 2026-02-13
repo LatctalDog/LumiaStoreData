@@ -13,32 +13,34 @@ FEEDS = {
     "Vandal": "https://vandal.elespanol.com/xml.cgi"
 }
 
-def clean_extreme(text):
-    """Limpieza total de caracteres y basura web para el Lumia 830"""
+def clean_final_version(text):
+    """Limpieza quirúrgica para Windows 10 Mobile"""
     if not text: return ""
     
-    # 1. Diccionario Maestro de Reparación (Vandal / GenXbox Edition)
-    repairs = {
-        '±Ē': 'ñ', 'ańo': 'año', 'reseńa': 'reseña', 'ańadir': 'añadir',
-        'mßs': 'más', 'tĒtulo': 'título', 'tķrmino': 'término', 'compa±': 'compañ',
-        '·ltimo': 'último', 'quķ': 'qué', 'asĒ': 'así', 'estķ': 'está',
-        'podrĒa': 'podría', 'tambiķn': 'también', 'se±al': 'señal', 'Í': 'í',
-        'þ': 'ñ', 'Õ': 'é', 'µ': 'ó', 'Ú': 'í', 'Ã': 'á', 'º': 'ú'
+    # 1. TRADUCCIÓN DE CARACTERES VANDAL (Mapeo exacto de tu último output)
+    vandal_map = {
+        '¾': 'ó', 'ķ': 'é', '·': 'ú', 'ß': 'á', 'Ē': 'í', 
+        '±': 'ñ', 'ańo': 'año', 'reseńa': 'reseña', 'ańadir': 'añadir'
     }
-    for broken, fixed in repairs.items():
+    for broken, fixed in vandal_map.items():
         text = text.replace(broken, fixed)
 
-    # 2. Eliminar restos de botones e interfaz
-    basura = [
-        r"PUBLICIDAD", r"Imagen", r"¡Comparte!", r"íComparte!", 
-        r"íSíguenos en Google News!", r"En 3DJuegos \|.*", 
-        r"En VidaExtra \|.*", r"Suscribete al canal.*"
+    # 2. LIMPIEZA DE BASURA (Solo frases completas, no palabras sueltas)
+    basura_frases = [
+        r"Imagen principal de 3DJuegos",
+        r"íSíguenos en Google News!",
+        r"íComparte!",
+        r"PUBLICIDAD",
+        r"Más historias en la categoría Slider",
+        r"Suscribete al canal de Generación Xbox Suscríbirse"
     ]
-    for patron in basura:
+    for patron in basura_frases:
         text = re.sub(patron, "", text, flags=re.IGNORECASE)
 
-    # 3. Normalizar espacios y saltos de línea
-    text = re.sub(r'\n{3,}', '\n\n', text)
+    # 3. NORMALIZAR ESPACIOS
+    text = re.sub(r' +', ' ', text) # Quitar espacios dobles
+    text = re.sub(r'\n{3,}', '\n\n', text) # Máximo 2 saltos de línea
+    
     return text[:8000].strip()
 
 def procesar_noticias():
@@ -46,17 +48,14 @@ def procesar_noticias():
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/122.0.0.0'}
 
     for nombre_fuente, url_feed in FEEDS.items():
-        print(f"Procesando: {nombre_fuente}")
+        print(f"Extrayendo: {nombre_fuente}")
         feed = feedparser.parse(url_feed)
         
         for entrada in feed.entries[:10]:
             try:
                 r = requests.get(entrada.link, headers=headers, timeout=10)
-                # Forzamos detección solo si el sitio es problemático
-                if "vandal" in entrada.link or "generacionxbox" in entrada.link:
-                    r.encoding = r.apparent_encoding
-                else:
-                    r.encoding = 'utf-8'
+                # Detección inteligente de encoding
+                r.encoding = r.apparent_encoding if "vandal" in entrada.link or "generacion" in entrada.link else 'utf-8'
 
                 article = Article(entrada.link, language='es')
                 article.set_html(r.text)
@@ -64,10 +63,10 @@ def procesar_noticias():
                 
                 if len(article.text) > 100:
                     noticia = {
-                        "titulo": clean_extreme(article.title),
-                        "fecha": entrada.get("published", "Hoy"),
+                        "titulo": clean_final_version(article.title),
+                        "fecha": entrada.get("published", "Reciente"),
                         "imagen": article.top_image,
-                        "resumen": clean_extreme(article.text),
+                        "resumen": clean_final_version(article.text),
                         "fuente": nombre_fuente,
                         "link": entrada.link
                     }
@@ -79,7 +78,7 @@ def procesar_noticias():
 
     with open('noticias.json', 'w', encoding='utf-8') as f:
         json.dump(noticias_finales, f, ensure_ascii=False, indent=4)
-    print(f"Hecho: {len(noticias_finales)} noticias listas.")
+    print(f"Finalizado: {len(noticias_finales)} noticias procesadas.")
 
 if __name__ == "__main__":
     procesar_noticias()
