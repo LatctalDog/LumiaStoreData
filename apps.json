@@ -14,11 +14,11 @@
     "Icono": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/office/icon.png"
   },
   {
-    "Nombre": "Minecraft for Windows 10",
-    "Precio": "$6.99",
+    "Nombre": "Minecraft Windows 10 Edition Beta",
+    "Precio": "$9.99",
     "Valoracion": "4.8",
-    "ImagenPromo": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/minecraft/promo.jpg",
-    "Icono": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/minecraft/icon.png"
+    "ImagenPromo": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/minecraft2/promo.jpg",
+    "Icono": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/minecraft2/icon.png"
   },
   {
     "Nombre": "Hitman GO",
