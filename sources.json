@@ -19,6 +19,10 @@
     {
       "nombre": "VidaExtra",
       "url": "https://www.vidaextra.com/feedburner.xml"
+    },
+    {
+      "nombre": "HobbyCagada",
+      "url": "https://www.hobbyconsolas.com/rss/"
     }
   ]
 }
