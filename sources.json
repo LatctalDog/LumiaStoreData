@@ -11,7 +11,10 @@
     {
       "nombre": "PlayStation Blog",
       "url": "https://feeds.feedburner.com/PlaystationblogLatam"
+    },
+    {
+      "nombre": "Vandal",
+      "url": "https://vandal.elespanol.com/xml.cgi"
     }
   ]
-
 }
