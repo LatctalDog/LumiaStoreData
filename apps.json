@@ -105,6 +105,13 @@
     "Icono": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/spotify/icon.png"
   },
   {
+    "Nombre": "Fresh Paint",
+    "Precio": "Gratis",
+    "Valoracion": "4.1",
+    "ImagenPromo": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/freshp/promo.jpg",
+    "Icono": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/freshp/icon.png"
+  },
+  {
     "Nombre": "Candy Crush Saga",
     "Precio": "Gratis",
     "Valoracion": "4.6",
