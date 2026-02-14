@@ -35,25 +35,11 @@
     "Icono": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/instagram/icon.png"
   },
   {
-    "Nombre": "Podcast",
-    "Precio": "Gratis",
-    "Valoracion": "4.1",
-    "ImagenPromo": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/podcast/promo.jpg",
-    "Icono": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/podcast/icon.png"
-  },
-  {
     "Nombre": "Asphalt 8: Airborne",
     "Precio": "Gratis",
     "Valoracion": "4.7",
     "ImagenPromo": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/asphalt/promo.jpg",
     "Icono": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/asphalt/icon.png"
-  },
-  {
-    "Nombre": "Subway Surfers",
-    "Precio": "Gratis",
-    "Valoracion": "4.6",
-    "ImagenPromo": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/subway/promo.jpg",
-    "Icono": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/subway/icon.png"
   },
   {
     "Nombre": "Adobe PS",
@@ -110,6 +96,13 @@
     "Valoracion": "4.1",
     "ImagenPromo": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/freshp/promo.jpg",
     "Icono": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/freshp/icon.png"
+  },
+  {
+    "Nombre": "Crossy Road",
+    "Precio": "Gratis",
+    "Valoracion": "4.7",
+    "ImagenPromo": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/crossy/promo.jpg",
+    "Icono": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/crossy/icon.png"
   },
   {
     "Nombre": "Candy Crush Saga",
