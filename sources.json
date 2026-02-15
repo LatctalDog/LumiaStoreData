@@ -19,6 +19,10 @@
     {
       "nombre": "VidaExtra",
       "url": "https://www.vidaextra.com/feedburner.xml"
+    },
+    {
+      "nombre": "Xbox Wire",
+      "url": "https://news.xbox.com/es-latam/feed/"
     }
   ]
 }
