@@ -2,7 +2,7 @@ name: Actualizar Noticias
 
 on:
   schedule:
-    - cron: '0 * * * *' # Automático cada hora
+    - cron: '*/15 * * * *' # Automático cada hora
   workflow_dispatch:    # Botón manual en la web
   # ESTO PERMITE QUE EL LUMIA DISPARE EL SCRIPT
   repository_dispatch:
