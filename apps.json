@@ -1,7 +1,7 @@
 [
   {
     "Nombre": "MixRadio",
-    "Precio": "Gratis*",
+    "Precio": "Gratis",
     "Valoracion": "4.4",
     "ImagenPromo": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/mixradio/promo.jpg",
     "Icono": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/mixradio/icon.png"
@@ -29,14 +29,14 @@
   },
   {
     "Nombre": "Instagram",
-    "Precio": "Gratis*",
+    "Precio": "Gratis",
     "Valoracion": "4.3",
     "ImagenPromo": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/instagram/promo.jpg",
     "Icono": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/instagram/icon.png"
   },
   {
     "Nombre": "Asphalt 8: Airborne",
-    "Precio": "Gratis*",
+    "Precio": "Gratis¹",
     "Valoracion": "4.7",
     "ImagenPromo": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/asphalt/promo.jpg",
     "Icono": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/asphalt/icon.png"
@@ -57,7 +57,7 @@
   },
   {
     "Nombre": "VLC",
-    "Precio": "Gratis*",
+    "Precio": "Gratis",
     "Valoracion": "4.4",
     "ImagenPromo": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/vlc/promo.jpg",
     "Icono": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/vlc/icon.png"
@@ -71,7 +71,7 @@
   },
   {
     "Nombre": "OneNote",
-    "Precio": "Gratis*",
+    "Precio": "Gratis",
     "Valoracion": "4.5",
     "ImagenPromo": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/onenote/promo.jpg",
     "Icono": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/onenote/icon.png"
@@ -85,28 +85,28 @@
   },
   {
     "Nombre": "Spotify",
-    "Precio": "Gratis*",
+    "Precio": "Gratis¹",
     "Valoracion": "4.5",
     "ImagenPromo": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/spotify/promo.jpg",
     "Icono": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/spotify/icon.png"
   },
   {
     "Nombre": "Fresh Paint",
-    "Precio": "Gratis*",
+    "Precio": "Gratis",
     "Valoracion": "4.1",
     "ImagenPromo": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/freshp/promo.jpg",
     "Icono": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/freshp/icon.png"
   },
   {
     "Nombre": "Crossy Road",
-    "Precio": "Gratis*",
+    "Precio": "Gratis¹",
     "Valoracion": "4.7",
     "ImagenPromo": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/crossy/promo.jpg",
     "Icono": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/crossy/icon.png"
   },
   {
     "Nombre": "Candy Crush Saga",
-    "Precio": "Gratis*",
+    "Precio": "Gratis¹",
     "Valoracion": "4.6",
     "ImagenPromo": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/candy/promo.jpg",
     "Icono": "https://raw.githubusercontent.com/LatctalDog/LumiaStoreData/refs/heads/main/images/candy/icon.png"
