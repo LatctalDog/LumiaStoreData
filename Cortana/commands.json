@@ -717,7 +717,7 @@
           "commandDialects": ["es-ES", "es-MX"],
           "commandExample": "Cortana ¿Cuál es la mejor consola?",
           "activationPhrases": [
-            "¿Cuál es la mejor consola [de] [videojuegos]?",
+            "¿Cuál es la mejor consola [de videojuegos]?",
             "¿Cuál es la mejor consola de juegos?",
             "¿Xbox o PlayStation?"
           ],
