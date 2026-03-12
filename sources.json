@@ -23,6 +23,10 @@
     {
       "nombre": "Xbox Wire",
       "url": "https://news.xbox.com/es-latam/feed/"
+    },
+    {
+      "nombre": "IGN España",
+      "url": "https://es.ign.com/feed.xml"
     }
   ]
 }
